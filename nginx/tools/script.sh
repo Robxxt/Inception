@@ -17,7 +17,7 @@ http {
 
     server {
         listen 443 ssl;
-        server_name $AUTHOR;
+        server_name $AUTHOR.$DOMAIN;
 
         ssl_certificate $CERT_PATH/$AUTHOR.crt;
         ssl_certificate_key $CERT_PATH/$AUTHOR.key;
