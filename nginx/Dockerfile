@@ -15,3 +15,5 @@ COPY tools/script.sh /web/script.sh
 RUN chmod +x /web/script.sh
 
 EXPOSE 443
+
+#CMD ["./script.sh"]
