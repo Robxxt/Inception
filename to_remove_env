@@ -1,0 +1,4 @@
+AUTHOR=rdragan
+DOMAIN=42.fr
+CERT_PATH=/etc/nginx/ssl
+KEY_PASS=hola
