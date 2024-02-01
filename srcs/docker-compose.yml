@@ -14,7 +14,7 @@ services:
     #   - wordpress
     restart: always
     volumes:
-      - ./wordpress/public/html:/var/www
+      - ./requirements/wordpress/public/html:/var/www
   
   mariadb:
     build:

@@ -1,16 +1,16 @@
 all:
-	sudo docker-compose up -d
+	sudo docker-compose -f srcs/docker-compose.yml up -d
 
 build:
-	sudo docker-compose up --build -d
+	sudo docker-compose -f srcs/docker-compose.yml up --build -d
 
 down:
-	sudo docker-compose down
+	sudo docker-compose -f srcs/docker-compose.yml down
 
 clean: down
 # remove the wordpress/public
 	@echo removing the volumes ...
-	sleep 10
-	@sudo docker volume rm $(sudo docker volume ls)
+	@sleep 4
+	@sudo docker volume rm srcs_db_volume
 
 fclean: clean
