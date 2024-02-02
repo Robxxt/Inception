@@ -1,7 +1,9 @@
 all:
+	mkdir ~/data
 	sudo docker-compose -f srcs/docker-compose.yml up -d
 
 build:
+	mkdir ~/data
 	sudo docker-compose -f srcs/docker-compose.yml up --build -d
 
 down:

@@ -10,11 +10,13 @@ services:
       - .env
     ports:
       - "443:443"
-    # depends_on:
-    #   - wordpress
+    depends_on:
+      - wordpress
+    networks:
+      - inception
     restart: always
     volumes:
-      - ./requirements/wordpress/public/html:/var/www
+      - wordpress:/var/www
   
   mariadb:
     build:
@@ -26,8 +28,42 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - db_volume:/var/lib/mysql
+      - mariadb:/var/lib/mysql
+    networks:
+      - inception
+    restart: always
+  
+  wordpress:
+    container_name: wordpress
+    build: ./requirements/wordpress/.
+    image: wordpress
+    depends_on:
+      - mariadb
+    volumes:
+      - wordpress:/var/www/html
+    env_file:
+      - .env
+    networks:
+      - inception
     restart: always
 
 volumes:
-  db_volume: 
+  wordpress:
+    name: wordpress
+    driver: local
+    driver_opts:
+      device: ${HOME}/data/srcs/wordpress
+      o: bind
+      type: none
+
+  mariadb:
+    name: mariadb
+    driver: local
+    driver_opts:
+      device: ${HOME}/data/srcs/mariadb
+      o: bind
+      type: none
+
+networks:
+  inception:
+    name: inception
