@@ -16,7 +16,7 @@ services:
       - inception
     restart: always
     volumes:
-      - wordpress:/var/www
+      - wordpress:/var/www/html
   
   mariadb:
     build:
