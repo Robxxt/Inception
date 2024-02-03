@@ -41,6 +41,8 @@ services:
       - mariadb
     volumes:
       - wordpress:/var/www/html
+    ports:
+      - "9000:9000"
     env_file:
       - .env
     networks:
