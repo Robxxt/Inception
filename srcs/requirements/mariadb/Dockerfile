@@ -21,4 +21,4 @@ RUN chmod +x setup_db.sh
 
 COPY conf/50-server.cnf /etc/mysql/mariadb.conf.d
 
-# CMD ["./setup_db.sh"]
+CMD ["./setup_db.sh"]

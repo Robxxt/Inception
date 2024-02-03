@@ -21,7 +21,7 @@ wp user create $WP_SECOND_USER $WP_SECOND_USER_EMAIL --role=author --user_pass=$
 wp theme install astra --activate --allow-root
 wp plugin update --all --allow-root
 
-sed -i 's/listen = \/run\/php\/php7.3-fpm.sock/listen = 9000/g' /etc/php/7.3/fpm/pool.d/www.conf
+sed -i 's/listen = \/run\/php\/php7.4-fpm.sock/listen = 9000/g' /etc/php/7.4/fpm/pool.d/www.conf
 
 mkdir /run/php
 
