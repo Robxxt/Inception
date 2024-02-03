@@ -1,5 +1,17 @@
 FROM debian:11
 
+ENV DB_NAME=wordpress
+ENV DB_USER=rdragan
+ENV DB_PASSWORD=1234
+ENV AUTHOR=rdragan
+ENV DOMAIN=42.fr
+ENV CERT_PATH=/etc/nginx/ssl
+ENV WP_TITLE=hello
+ENV WP_ADMIN_EMAIL=rdragan@student.42heilbronn.de
+ENV WP_SECOND_USER=hi
+ENV WP_SECOND_PASSWORD=hi
+ENV WP_SECOND_USER_EMAIL=example@example.example
+
 EXPOSE 3306
 WORKDIR /db
 
