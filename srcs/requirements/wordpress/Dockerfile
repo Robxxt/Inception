@@ -22,4 +22,4 @@ COPY ./conf/wp-config.php /
 RUN chmod +x start.sh
 RUN chmod 755 wp-config.php
 
-# CMD [ "/start.sh" ]
+CMD [ "/start.sh" ]
