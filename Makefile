@@ -1,18 +1,19 @@
 all:
-	mkdir ~/data
+	mkdir -p ~/data/wordpress
+	mkdir -p ~/data/mariadb
 	sudo docker-compose -f srcs/docker-compose.yml up -d
 
 build:
-	mkdir ~/data
+	mkdir -p ~/data/wordpress
+	mkdir -p ~/data/mariadb
 	sudo docker-compose -f srcs/docker-compose.yml up --build -d
 
 down:
 	sudo docker-compose -f srcs/docker-compose.yml down
+	sudo docker volume rm mariadb
+	sudo docker volume rm wordpress
 
 clean: down
-# remove the wordpress/public
-	@echo removing the volumes ...
-	@sleep 4
-	@sudo docker volume rm srcs_db_volume
 
 fclean: clean
+	rm -Rf ~/data
