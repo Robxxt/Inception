@@ -17,7 +17,7 @@ http {
 
     server {
         listen 443 ssl;
-        root    /var/www/;
+        root    /var/www/html;
         index index.php index.html;
         server_name $AUTHOR.$DOMAIN;
 
