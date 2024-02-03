@@ -16,4 +16,4 @@ down:
 clean: down
 
 fclean: clean
-	rm -Rf ~/data
+	sudo rm -Rf ~/data
