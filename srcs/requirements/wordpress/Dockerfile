@@ -6,5 +6,6 @@ RUN apt update && \
 COPY ./tools/start.sh /
 COPY ./conf/wp-config.php /
 
+RUN chmod +x start.sh
 
-CMD [ "/script.sh" ]
+CMD [ "/start.sh" ]

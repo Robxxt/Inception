@@ -13,7 +13,5 @@ down:
 	sudo docker volume rm mariadb
 	sudo docker volume rm wordpress
 
-clean: down
-
-fclean: clean
+fclean: down
 	sudo rm -Rf ~/data
