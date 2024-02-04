@@ -5,6 +5,8 @@ mkdir -p $CERT_PATH
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout $CERT_PATH/$AUTHOR.key \
     -out $CERT_PATH/$AUTHOR.crt -subj "/C=DE/ST=Baden-Württemberg/L=Heilbronn/O=42Heilbronn/OU=42Heilbronnal Unit/CN=Common Name"
 
+chown -R www-data:www-data /var/www/html
+
 cat <<EOF > /etc/nginx/nginx.conf
 worker_processes auto;
 
