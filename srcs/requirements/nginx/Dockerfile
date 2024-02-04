@@ -1,14 +1,12 @@
 FROM debian:11
 
-WORKDIR /web
-
 RUN apt update && \
     apt install -y nginx openssl
 
-COPY tools/script.sh /web/script.sh
+COPY tools/script.sh script.sh
 
-RUN chmod +x /web/script.sh
+RUN chmod +x script.sh
 
 EXPOSE 443
 
-CMD ["/web/script.sh"]
+CMD ["./script.sh"]
