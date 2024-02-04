@@ -12,8 +12,8 @@ sed -i "s/define( 'DB_NAME', 'db1' );/define( 'DB_NAME', '$DB_NAME' );/" /wp-con
 sed -i "s/define( 'DB_USER', 'user' );/define( 'DB_USER', '$DB_USER' );/" /wp-config.php
 sed -i "s/define( 'DB_PASSWORD', 'pwd' );/define( 'DB_PASSWORD', '$DB_PASSWORD' );/" /wp-config.php
 
-mkdir -p var/www/html/
-mv /wp-config.php /var/www/html/wp-config.php
+mv /wp-config.php /var/www/html/
+rm /var/www/html/wp-config-sample.php
 
 wp core install --url=$AUTHOR.$DOMAIN/ --title=$WP_TITLE --admin_user=$AUTHOR --admin_password=$DB_PASSWORD --admin_email=$WP_ADMIN_EMAIL --skip-email --allow-root
 
