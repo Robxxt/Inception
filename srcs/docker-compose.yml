@@ -9,8 +9,8 @@ services:
     container_name: nginx
     env_file:
       - .env
-    ports:
-      - "443:443"
+    expose:
+      - 443
     depends_on:
       - wordpress
     networks:
@@ -27,8 +27,8 @@ services:
     container_name: mariadb
     env_file:
       - .env
-    ports:
-      - "3306:3306"
+    expose:
+      - 3306:
     volumes:
       - mariadb:/var/lib/mysql
     networks:
@@ -39,13 +39,12 @@ services:
     image: wordpress
     container_name: wordpress
     build: ./requirements/wordpress/.
-    image: wordpress
     depends_on:
       - mariadb
     volumes:
       - wordpress:/var/www/html
-    ports:
-      - "9000:9000"
+    expose:
+      - 9000:
     env_file:
       - .env
     networks:
