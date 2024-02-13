@@ -1,7 +1,7 @@
 #!/bin/bash
 
 mkdir -p /var/www/html && cd /var/www/html
-rm -rf *
+
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar 
 
 chmod +x wp-cli.phar
@@ -24,6 +24,8 @@ wp theme install astra --activate --allow-root
 wp plugin update --all --allow-root
 
 sed -i 's/listen = \/run\/php\/php7.4-fpm.sock/listen = 9000/g' /etc/php/7.4/fpm/pool.d/www.conf
+
+chown www-data:www-data -R /var/www/html/
 
 mkdir /run/php
 

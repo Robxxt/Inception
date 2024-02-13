@@ -5,6 +5,7 @@ RUN apt update && \
 
 COPY ./tools/start.sh /
 COPY ./conf/wp-config.php /
+COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d
 
 RUN chmod +x start.sh
 

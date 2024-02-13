@@ -7,6 +7,9 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout "$CERT_PATH/$AUTHOR.
 
 cat <<EOF > /etc/nginx/nginx.conf
 worker_processes auto;
+user www-data;
+pid /run/nginx.pid;
+include /etc/nginx/modules-enabled/*.conf;
 
 events {
     worker_connections 1024;
@@ -14,10 +17,10 @@ events {
 }
 
 http {
-
+    include /etc/nginx/mime.types;
     server {
         listen 443 ssl;
-        root    /var/www/html;
+        root    /var/www/html/;
         index index.php index.html;
         server_name $AUTHOR.$DOMAIN;
 
