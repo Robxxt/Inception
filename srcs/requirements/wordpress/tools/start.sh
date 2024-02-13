@@ -27,6 +27,8 @@ sed -i 's/listen = \/run\/php\/php7.4-fpm.sock/listen = 9000/g' /etc/php/7.4/fpm
 
 chown www-data:www-data -R /var/www/html/
 
-mkdir /run/php
+if [ ! -d /run/php ]; then
+	mkdir /run/php
+fi
 
 /usr/sbin/php-fpm7.4 -F
