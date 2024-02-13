@@ -15,6 +15,8 @@ sed -i "s/define( 'DB_PASSWORD', 'pwd' );/define( 'DB_PASSWORD', '$DB_PASSWORD' 
 mv /wp-config.php /var/www/html/
 rm /var/www/html/wp-config-sample.php
 
+sleep 6
+
 wp core install --url=$AUTHOR.$DOMAIN/ --title=$WP_TITLE --admin_user=$AUTHOR --admin_password=$DB_PASSWORD --admin_email=$WP_ADMIN_EMAIL --skip-email --allow-root
 
 wp user create $WP_SECOND_USER $WP_SECOND_USER_EMAIL --role=author --user_pass=$WP_SECOND_PASSWORD --allow-root
