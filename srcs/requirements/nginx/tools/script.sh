@@ -34,22 +34,15 @@ http {
         ssl_prefer_server_ciphers off;
 
         # Other server configurations...
-        location / {
-            try_files \$uri /index.php?\$args /index.html;
-            add_header Last-Modified \$date_gmt;
-            add_header Cache-Control 'no-store, no-cache';
-            if_modified_since off;
-            expires off;
-            etag off;
-        }
         location ~ \.php$ {
-            include snippets/fastcgi-php.conf;
             fastcgi_pass wordpress:9000;
             fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
             fastcgi_param PATH_INFO \$fastcgi_path_info;
             fastcgi_buffer_size 128k;
             fastcgi_buffers 4 256k;
             fastcgi_busy_buffers_size 256k;
+            fastcgi_index index.php;
+            include fastcgi.conf;
         }
     }
 }
